@@ -27,17 +27,27 @@ Challenges
     Write a version of the program that displays the greeting in a GUI window.
  */
 public class App {
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
+    Scanner in = new Scanner(System.in);
 
-        // input
+    public static void main(String[] args) {
+        App myApp = new App();
+
+        String name = myApp.getName();
+        String outputString = myApp.generateString(name);
+        myApp.printOutput(outputString);
+    }
+
+    private void printOutput(String outputString) {
+        System.out.println(outputString);
+    }
+
+    private String getName() {
         System.out.print("What is your name? ");
         String name = in.nextLine();
+        return name;
+    }
 
-        // concatenation
-        String outputString = "Hello, " + name + ", nice to meet you!";
-
-        // output
-        System.out.println(outputString);
+    private String generateString(String name) {
+        return "Hello, " + name + ", nice to meet you!";
     }
 }
